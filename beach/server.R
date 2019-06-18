@@ -24,21 +24,16 @@ shinyServer(function(input, output) {
   #Draw map
   output$map <- renderLeaflet({
     
-    map_data = map
-    
-    leaflet(data = map_data) %>%
+    m<-leaflet(data = map) %>%
       addTiles() %>%
-      setView(lng=-119.8,lat=34.4,zoom=10)%>%
-      addCircleMarkers(
+      #setView(lng=-119.8,lat=34.4,zoom=11)%>%
+      addMarkers(
         lng = ~longitude, lat = ~latitude,
-        stroke = FALSE, fillOpacity = 0.5, radius = ~richness/6,
-        label=~paste(site), 
-        labelOptions= labelOptions(noHide=T,textsize="11px",direction="bottom",offset=c(0,5))) %>%
-    addCircleMarkers(
-      lng = ~longitude, lat = ~latitude,
-      stroke = FALSE, fillOpacity = 0.5, radius = ~richness/6,
-      label =~paste("Richness: ",richness),
-      labelOptions= labelOptions(noHide=T,textsize="9px",direction="top",offset=c(0,-1)))
+        label = ~site,
+        labelOptions= labelOptions(noHide=T,textOnly = TRUE,textsize="11px",direction="top",offset=c(0,-20))
+        ) 
+   
+    m
   })
   
   #Draw daily counts time series (bar chart)

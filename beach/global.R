@@ -5,10 +5,10 @@ library(shiny)
 library(tidyverse)
 library(leaflet)
 library(shinydashboard)
-library(grid)
-library(metajam)
-library(htmltools)
-library(zoo)
+
+#library(metajam)
+
+
 
 ###########################################
 ####read data from the remote resource#####
@@ -16,7 +16,7 @@ library(zoo)
 #library(remotes)
 #remotes::install_github('clnsmth/metajam', build_vignettes = TRUE)
 
-path<-"/Users/kuili/Desktop/Github/Rshiny/beach"
+#path<-"/Users/kuili/Desktop/Github/Rshiny/beach"
 
 # source("/Users/kuili/Desktop/Github/ggplotgui/R/read_data_archived.R")
 # data.pkg.doi<-"doi:10.6073/pasta/26fc605a392b405628c928d996da2dcd"
@@ -26,9 +26,9 @@ path<-"/Users/kuili/Desktop/Github/Rshiny/beach"
 ####read data from local#####
 ###########################
 
-data <- read.csv("data/Shorebird_abundance_20180125.csv",stringsAsFactors = F,na="-99999")
+data <- read.csv("Shorebird_abundance_20180125.csv",stringsAsFactors = F,na="-99999")
 
-location <- read.csv("data/site_location.csv",stringsAsFactors = F)
+location <- read.csv("site_location.csv",stringsAsFactors = F)
 
 data1<-data %>%
   rename_all(tolower) %>%
@@ -38,12 +38,6 @@ data1<-data %>%
   summarise(total=sum(total)) %>%
   ungroup()
 
-# peace<-data %>% #2011-11 ccb has two 
-#    rename_all(tolower) %>%
-#    distinct(year,month,date,site) %>%
-#    group_by(year,month,site) %>%
-#    summarise(freq=n()) %>%
-#    ungroup()
 
 #bird richness and location
  map<- data1 %>%

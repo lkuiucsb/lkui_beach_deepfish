@@ -3,21 +3,22 @@
 
 library(shiny)
 library(tidyverse)
+library(stringr)
 library(leaflet)
 library(shinydashboard)
 library(plotly)
 library(grid)
 library(lubridate)
 #library(remotes)
-library(metajam)
-library(htmltools)
+#library(metajam)
+#library(htmltools)
 
 ###########################################
 ####read data from the remote resource#####
 ###########################################
 #remotes::install_github('clnsmth/metajam', build_vignettes = TRUE)
 
-path<-"/Users/kuili/Desktop/Github/deep_reef_fish"
+#setwd("D:/GitHub/Rshiny/deep_reef_fish/")
 
 # source("/Users/kuili/Desktop/Github/ggplotgui/R/read_data_archived.R")
 # data.pkg.doi<-"doi:10.6073/pasta/59d44ccc0d08bb8735a564aca91e5009"
@@ -27,7 +28,8 @@ path<-"/Users/kuili/Desktop/Github/deep_reef_fish"
 ####read data from local#####
 ###########################
 
-data <- read.csv("data_package1/SBCMBON_deep_reeffish_count_20170605.csv",stringsAsFactors = F,)
+
+data <- read.csv("SBCMBON_deep_reeffish_count_20170605.csv",stringsAsFactors = F)
 
 data1<-data %>%
   mutate(year=as.integer(substr(date,1,4)),

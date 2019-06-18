@@ -3,7 +3,7 @@
 #
 dashboardPage(skin="blue",
   
-  dashboardHeader(title = "Bird community along beaches"),
+  dashboardHeader(title = "Bird communities"),
   
   dashboardSidebar(
     
