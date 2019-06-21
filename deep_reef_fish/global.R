@@ -1,6 +1,15 @@
 # Li Kui 2019-06-15
 # Deep reef fish shiny app using data from DOI: doi:10.6073/pasta/59d44ccc0d08bb8735a564aca91e5009
 
+# To deploy app to the internet:
+# library(rsconnect)
+# setwd('D:/GitHub/Rshiny/deep_reef_fish')
+# deployApp()
+#
+# Check error logs:
+# rsconnect::showLogs()
+
+
 library(shiny)
 library(tidyverse)
 library(stringr)

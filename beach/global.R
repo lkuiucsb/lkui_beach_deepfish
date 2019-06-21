@@ -1,26 +1,21 @@
 # Li Kui 2019-06-15
 # Beach bird shiny app using data from DOI: doi:10.6073/pasta/26fc605a392b405628c928d996da2dcd. 
 
+# To deploy app to the internet:
+# library(rsconnect)
+# setwd('D:/GitHub/Rshiny/beach')
+# rsconnect::deployApp()
+#
+# Check error logs:
+# rsconnect::showLogs()
+
+
+
 library(shiny)
 library(tidyverse)
 library(leaflet)
 library(shinydashboard)
 
-#library(metajam)
-
-
-
-###########################################
-####read data from the remote resource#####
-###########################################
-#library(remotes)
-#remotes::install_github('clnsmth/metajam', build_vignettes = TRUE)
-
-#path<-"/Users/kuili/Desktop/Github/Rshiny/beach"
-
-# source("/Users/kuili/Desktop/Github/ggplotgui/R/read_data_archived.R")
-# data.pkg.doi<-"doi:10.6073/pasta/26fc605a392b405628c928d996da2dcd"
-# data<-read_data_archived(data.pkg.doi,path)
 
 ######################
 ####read data from local#####
